@@ -1,0 +1,67 @@
+.side_bar {
+  height:calc( 100vh - 100px );
+  width: 250px;
+  background-color: rgb(235, 235, 235);
+  display:flex;
+  justify-content: center;
+  &__in {
+    height: calc(100vh - 100px);
+    width: 200px;
+    background-color: rgb(255, 255, 255);
+    padding: 10px 10px;
+    .user{
+      .new_registration{
+        padding: 10px 10px 0 10px;
+      }
+      .log_in{
+        padding: 10px 10px 0 10px;
+      }
+    }
+    .devise {
+      .label{
+        padding-top: 40px;
+      }
+      .new_registration{
+        padding: 10px 10px 0 10px;
+      }
+      .devise_list{
+        padding: 10px 10px 0 10px;
+      }
+      .repair_support{
+        padding: 10px 10px 0 10px;
+      }
+    }
+   
+  }
+}
+
+.btn-flat-border-blue {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: .4s;
+  color: #67c5ff;
+  border: solid 2px #67c5ff;
+}
+
+.btn-flat-border-blue:hover {
+  color: white;
+  background: #67c5ff;
+}
+
+
+.btn-flat-border-green {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: .4s;
+  color: #0ac003;
+  border: solid 2px #0ac003;
+}
+
+.btn-flat-border-green:hover {
+  color: white;
+  background: #0ac003;
+}

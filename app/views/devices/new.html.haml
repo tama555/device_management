@@ -1,0 +1,10 @@
+= render "layouts/main_header"
+
+.wrapper
+  = render "layouts/side_bar"
+  .main_space
+    = form_with model: @devise do |f|
+  .form
+    .form__item
+      = f.label :name, '機器名'
+    = f.date_select :name

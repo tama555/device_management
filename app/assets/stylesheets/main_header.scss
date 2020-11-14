@@ -1,0 +1,16 @@
+.header {
+  height: 100px;
+  width: 100vw;
+  background:linear-gradient(#85ebd8, #269191);
+  color: white;
+  &__left {
+    .title {
+      font-size: 30px;
+      font-weight:bold;
+      width: 400px;
+      margin: 0 auto;
+      padding: 30px 0 0 0;
+      
+    }
+  }
+}
