@@ -6,10 +6,10 @@ class CreateDevices < ActiveRecord::Migration[6.0]
       t.string :model_number #型番
       t.string :serial_number #sn
       t.date :purchase_date
-      t.date :price
+      t.integer :price
       t.date :last_inspection_date
       t.date :next_inspection_date
-      t.date :inspection_interval
+      t.integer :inspection_interval
       t.boolean :lending_status
       t.timestamps
     end

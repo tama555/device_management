@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 2020_11_11_132650) do
     t.string "model_number"
     t.string "serial_number"
     t.date "purchase_date"
-    t.date "price"
+    t.integer "price"
     t.date "last_inspection_date"
     t.date "next_inspection_date"
-    t.date "inspection_interval"
+    t.integer "inspection_interval"
     t.boolean "lending_status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

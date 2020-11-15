@@ -3,8 +3,37 @@
 .wrapper
   = render "layouts/side_bar"
   .main_space
-    = form_with model: @devise do |f|
-  .form
-    .form__item
-      = f.label :name, '機器名'
-    = f.date_select :name
+    = form_with model: @device do |f|
+      .form
+        .form__item
+          = f.label :name, '機器名'
+        = f.text_field :name
+      .form
+        .form__item
+          = f.label :model_number, '型式'
+        = f.text_field :model_number
+      .form
+        .form__item
+          = f.label :serial_number, 'シリアルNo'
+        = f.text_field :serila_number
+      .form
+        .form__item
+          = f.label :purchase_date, '購入日'
+        = f.date_select :purchase_date
+      .form
+        .form__item
+          = f.label :price, '購入金額'
+        = f.text_field :price
+      .form
+        .form__item
+          = f.label :last_inspection_date, '前回点検日'
+        = f.date_select :last_inspection_date
+      .form
+        .form__item
+          = f.label :next_inspection_date, '次回点検日'
+        = f.date_select :next_inspection_date
+      .form
+        .form__item
+          = f.label :inspection_interbal, '点検間隔'
+        = f.text_field :inspection_interbal
+      = f.submit '機器登録'
