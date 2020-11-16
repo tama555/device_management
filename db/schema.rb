@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_11_11_132650) do
 
   create_table "devices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "device_class"
+    t.integer "device_class_id"
     t.string "name"
     t.string "model_number"
     t.string "serial_number"
@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 2020_11_11_132650) do
     t.integer "price"
     t.date "last_inspection_date"
     t.date "next_inspection_date"
-    t.integer "inspection_interval"
-    t.boolean "lending_status"
+    t.integer "inspection_interval_id"
+    t.boolean "lending_status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
