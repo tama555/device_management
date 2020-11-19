@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   root to:'devices#index'
 
   resources :devices do
+    collection do
+      get 'list'
+    end
   end
-
+ 
 end

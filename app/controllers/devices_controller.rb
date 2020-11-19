@@ -1,6 +1,7 @@
 class DevicesController < ApplicationController
 
   def index
+    @devices = Device.all
   end
 
   def new
@@ -17,6 +18,14 @@ class DevicesController < ApplicationController
       end
   end
 
+  def list
+    # @devices = Device.order("created_at DESC")
+    @devices = Device.all 
+  end
+
+
+
+  
 
 
 private
