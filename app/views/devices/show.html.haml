@@ -4,3 +4,47 @@
   = render "layouts/side_bar"
   .main_space
     .information
+      .form
+        .form__item
+          機器分類
+        = @device.device_class.name
+      
+      .form
+        .form__item
+          機器名
+        = @device.name
+      
+      .form
+        .form__item
+          型番
+        = @device.model_number
+      
+      .form
+        .form__item
+          シリアルNo
+        = @device.serial_number
+      
+      .form
+        .form__item
+          購入日
+        = @device.purchase_date
+      
+      .form
+        .form__item
+          購入金額
+        = @device.price
+      
+      .form
+        .form__item
+          最終点検日
+        = @device.last_inspection_date
+      
+      .form
+        .form__item
+          次回点検日
+        = @device.next_inspection_date
+      
+      .form
+        .form__item
+          点検間隔
+        = @device.inspection_interval.name
