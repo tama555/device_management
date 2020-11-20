@@ -48,3 +48,8 @@
         .form__item
           点検間隔
         = @device.inspection_interval.name
+
+      .form
+        .form__item
+          貸出可否
+        = @device.lending_status ? '×': '○'
