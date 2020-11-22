@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_11_132650) do
+ActiveRecord::Schema.define(version: 2020_11_20_154157) do
 
   create_table "devices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "device_class_id"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 2020_11_11_132650) do
     t.date "next_inspection_date"
     t.integer "inspection_interval_id"
     t.boolean "lending_status", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "submitter"
+    t.integer "user_id"
+    t.integer "device_id"
+    t.date "date_of_receipt"
+    t.string "department"
+    t.text "trouble_content"
+    t.text "correspondence"
+    t.text "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
