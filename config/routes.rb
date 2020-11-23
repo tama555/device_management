@@ -9,5 +9,8 @@ Rails.application.routes.draw do
       get 'list'
     end
   end
- 
+  
+  resources :tasks do
+  end
+  
 end
