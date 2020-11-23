@@ -25,12 +25,12 @@
 
 
       .form
-        .form__item
+        .form__item--area
           = f.label :trouble_content, 'トラブル内容'
-        = f.text_field :trouble_content
+        = f.text_area :trouble_content
       .form
-        .form__item
+        .form__item--area
           = f.label :correspondence, '対応'
-        = f.text_field :correspondence
+        = f.text_area :correspondence
       
       = f.submit '修理機器登録'

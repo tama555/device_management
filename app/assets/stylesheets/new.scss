@@ -3,7 +3,7 @@
   margin: 0 0 10px 0;
   
   &__item {
-    width:300px;
+    width:200px;
     background-color: rgb(240, 240, 240);
     border-right: 6px solid white;
     border-bottom: 3px solid white;
@@ -21,4 +21,11 @@
     width: 70%;
   }
   
+
+  #task_trouble_content {
+    width: 500px;
+  }
+  #task_correspondence{
+    width: 500px;
+  }
 }

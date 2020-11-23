@@ -1,0 +1,28 @@
+= render "layouts/main_header"
+
+.wrapper
+  = render "layouts/side_bar"
+  .main_space
+    .information
+      %table
+        %tr
+          %th 修理ID
+          %th 提出者
+          %th 受取者
+          %th 機器ID
+          %th 機器名
+          %th 部署
+          %th トラブル内容
+          %th 受取日
+        - @tasks.each do |task|
+          %tr
+            %td= link_to task.id, task
+            %td= task.submitter
+            %td= task.user.name
+            %td= task.device.id
+            %td= task.device.name
+            %td= task.department.name
+            %td= task.trouble_content
+            %td= task.created_at
+
+  

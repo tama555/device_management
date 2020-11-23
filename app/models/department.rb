@@ -6,6 +6,6 @@ class Department < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  
+  has_many :tasks
 
 end
