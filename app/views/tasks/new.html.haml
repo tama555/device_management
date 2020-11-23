@@ -3,3 +3,34 @@
 .wrapper
   = render "layouts/side_bar"
   .main_space
+    = form_with model: @task do |f|
+      
+      .form
+        .form__item
+          = f.label :device_id, '機器ID'
+        = f.text_field :device_id
+      .form
+        .form__item
+          = f.label :submitter, '提出者'
+        = f.text_field :submitter
+      .form
+        .form__item
+          = f.label :date_of_receipt, '受取日'
+        = f.date_select :date_of_receipt
+
+      .form
+        .form__item
+          = f.label :department, '部署'
+        = f.collection_select :department_id, Department.all, :id, :name,{include_blank: "選択してください"}
+
+
+      .form
+        .form__item
+          = f.label :trouble_content, 'トラブル内容'
+        = f.text_field :trouble_content
+      .form
+        .form__item
+          = f.label :correspondence, '対応'
+        = f.text_field :correspondence
+      
+      = f.submit '修理機器登録'

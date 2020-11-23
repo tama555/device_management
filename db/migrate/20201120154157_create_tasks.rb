@@ -5,10 +5,10 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.integer :user_id
       t.integer :device_id
       t.date :date_of_receipt
-      t.string :department
+      t.integer :department_id
       t.text :trouble_content
       t.text :correspondence
-      t.text :note
+      t.boolean :status, default: 0
       t.timestamps
     end
   end

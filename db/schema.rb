@@ -32,10 +32,10 @@ ActiveRecord::Schema.define(version: 2020_11_20_154157) do
     t.integer "user_id"
     t.integer "device_id"
     t.date "date_of_receipt"
-    t.string "department"
+    t.integer "department_id"
     t.text "trouble_content"
     t.text "correspondence"
-    t.text "note"
+    t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
