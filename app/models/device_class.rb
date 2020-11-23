@@ -5,4 +5,7 @@ class DeviceClass < ActiveHash::Base
       {id: 3, name: '低圧持続吸引器'}, {id: 4, name: 'IABP'}, {id: 5, name: 'PCPS'},   
   ]
 
+  include ActiveHash::Associations
+  has_many :devices
+
 end

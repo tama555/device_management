@@ -7,6 +7,7 @@
       %table
         %tr
           %th ID
+          %th 機器分類
           %th 機器名
           %th 型番
           %th シリアルNo
@@ -15,6 +16,7 @@
         - @devices.each do |device|
           %tr
             %td= link_to device.id, device
+            %td= device.device_class.name
             %td= device.name
             %td= device.model_number
             %td= device.serial_number
