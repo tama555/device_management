@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   resources :tasks do
     collection do
       get 'incomplete'
+      get 'complete'
     end
   end
-  
+  post '/tasks/:id/done' => 'tasks#done',   as: 'done'
 end

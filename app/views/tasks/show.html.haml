@@ -52,5 +52,7 @@
       .form__item
         処理
       = @task.status ? '済': '未'
+    
+    = button_to 'Done', done_path(@task), method: :post, data:{confirm: '本当によろしいですか?'}
    
 
