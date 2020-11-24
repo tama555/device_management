@@ -19,7 +19,7 @@ class TasksController < ApplicationController
       @task.update(status:0)
     end
     @tasks = Task.all.includes(:user)
-    render :index
+    redirect_to root_path
   end
 
   def complete
