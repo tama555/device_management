@@ -7,7 +7,13 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
- 
+  def show
+    @task = Task.find(params[:id])
+  end
+
+  def incomplete
+    @tasks = Task.includes(:user).order("created_at DESC").where(status: 0)
+  end
 
   def create
     @task = Task.new(task_params)

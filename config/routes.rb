@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   end
   
   resources :tasks do
+    collection do
+      get 'incomplete'
+    end
   end
   
 end
