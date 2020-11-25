@@ -56,7 +56,18 @@
         - if user_signed_in? && current_user.id == @task.user_id
           .done_botton
             = button_to '変更', done_path(@task), method: :post, data:{confirm: '本当によろしいですか?'}
+  
+  
+  
     .fotter
+      .container
+        - if current_user
+          = form_with(model: [@task, @comment], local: true) do |form|
+            = form.text_area :text, placeholder: "コメントする", rows: "2"
+            = form.submit "送信"
+        - else
+          %strong
+            %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
         
    
 

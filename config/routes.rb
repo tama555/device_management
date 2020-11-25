@@ -11,10 +11,12 @@ Rails.application.routes.draw do
   end
   
   resources :tasks do
+
     collection do
       get 'incomplete'
       get 'complete'
     end
+    resources :comments, only: [:create, :destroy]
   end
   post '/tasks/:id/done' => 'tasks#done',   as: 'done'
 end
