@@ -13,10 +13,10 @@ class TasksController < ApplicationController
 
   def done
     @task = Task.find(params[:id])
-    if @task.status == 0
-      @task.update(status:1)
+    if @task.status == true
+      @task.update(status: 0)
     else
-      @task.update(status:0)
+      @task.update(status: 1)
     end
     @tasks = Task.all.includes(:user)
     redirect_to root_path
