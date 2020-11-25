@@ -2,58 +2,61 @@
 
 .wrapper
   = render "layouts/side_bar"
-  .main_space
-    .form
-      .form__item
-        修理ID
-      = @task.id
+  .main_field
+    .main_space
+      .form
+        .form__item
+          修理ID
+        = @task.id
+        
+      .form
+        .form__item
+          受取日
+        = @task.date_of_receipt
       
-    .form
-      .form__item
-        受取日
-      = @task.date_of_receipt
-    
-    .form
-      .form__item
-        提出者
-      = @task.submitter
-    
-    .form
-      .form__item
-        受取者
-      = @task.user.name
-
-    .form
-      .form__item
-        機器ID
-      = @task.device.id
-
-    .form
-      .form__item
-        機器名
-      = @task.device.name
-
-    .form
-      .form__item
-        部署
-      = @task.department.name
-    
-    .form
-      .form__item
-        トラブル内容
-      = @task.trouble_content
-
-    .form
-      .form__item
-        対応
-      = @task.correspondence
-
-    .form
-      .form__item
-        処理
-      = @task.status ? '済': '未'
-      .done_botton
-        = button_to '変更', done_path(@task), method: :post, data:{confirm: '本当によろしいですか?'}
+      .form
+        .form__item
+          提出者
+        = @task.submitter
       
+      .form
+        .form__item
+          受取者
+        = @task.user.name
+
+      .form
+        .form__item
+          機器ID
+        = @task.device.id
+
+      .form
+        .form__item
+          機器名
+        = @task.device.name
+
+      .form
+        .form__item
+          部署
+        = @task.department.name
+      
+      .form
+        .form__item
+          トラブル内容
+        = @task.trouble_content
+
+      .form
+        .form__item
+          対応
+        = @task.correspondence
+
+      .form
+        .form__item
+          処理
+        = @task.status ? '済': '未'
+        - if user_signed_in? && current_user.id == @task.user_id
+          .done_botton
+            = button_to '変更', done_path(@task), method: :post, data:{confirm: '本当によろしいですか?'}
+    .fotter
+        
    
 
