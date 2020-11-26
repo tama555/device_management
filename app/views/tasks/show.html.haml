@@ -56,7 +56,10 @@
         - if user_signed_in? && current_user.id == @task.user_id
           .done_botton
             = button_to '変更', done_path(@task), method: :post, data:{confirm: '本当によろしいですか?'}
-  
+      
+      - if user_signed_in? && current_user.id == @task.user_id
+        = link_to '編集', edit_task_path(@task)
+        = link_to '削除', @task, method: :delete, data:{confirm: '本当によろしいですか?'}
       .comments
         %h2 ＜対応一覧＞
         
@@ -75,6 +78,8 @@
               .comment__under--text
                 = comment.text
   
+
+
     .fotter
       .container
         - if current_user

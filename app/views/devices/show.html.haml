@@ -54,6 +54,11 @@
           .form__item
             貸出可否
           = @device.lending_status ? '×': '○'
+
+      - if user_signed_in?
+        = link_to '編集', edit_device_path(@device)
+        = link_to '削除', @device, method: :delete, data:{confirm: '本当によろしいですか?'}
+      
       .trouble_logo
         <修理対応履歴>
       - if @tasks.present?

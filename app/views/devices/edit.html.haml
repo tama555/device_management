@@ -1,0 +1,45 @@
+= render "layouts/main_header"
+
+.wrapper
+  = render "layouts/side_bar"
+  .main_space
+    = form_with model: @device do |f|
+      
+      .form
+        .form__item
+          = f.label :device_class, '機器分類'
+        -# = f.text_field :device_class
+        = f.collection_select :device_class_id, DeviceClass.all, :id, :name,{include_blank: "選択してください"}
+      .form
+        .form__item
+          = f.label :name, '機器名'
+        = f.text_field :name
+      .form
+        .form__item
+          = f.label :model_number, '型式'
+        = f.text_field :model_number
+      .form
+        .form__item
+          = f.label :serial_number, 'シリアルNo'
+        = f.text_field :serial_number
+      .form
+        .form__item
+          = f.label :purchase_date, '購入日'
+        = f.date_select :purchase_date
+      .form
+        .form__item
+          = f.label :price, '購入金額'
+        = f.text_field :price
+      .form
+        .form__item
+          = f.label :last_inspection_date, '前回点検日'
+        = f.date_select :last_inspection_date
+      .form
+        .form__item
+          = f.label :next_inspection_date, '次回点検日'
+        = f.date_select :next_inspection_date
+      .form
+        .form__item
+          = f.label :inspection_interval_id, '点検間隔'
+        = f.collection_select :inspection_interval_id, InspectionInterval.all, :id, :name,{include_blank: "選択してください"}
+      = f.submit '機器編集'

@@ -18,6 +18,22 @@ class DevicesController < ApplicationController
       end
   end
 
+  def edit
+    @device = Device.find(params[:id])
+  end
+
+  def update
+    @device = Device.find(params[:id])
+    @device.update(device_params)
+    redirect_to @device
+  end
+
+  def destroy
+    device = Device.find(params[:id])
+    device.destroy
+    redirect_to root_path
+  end
+
   def show
     @device = Device.find(params[:id])
     @tasks = Task.includes(:user).order("created_at DESC").where(device_id: params[:id])

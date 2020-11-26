@@ -1,5 +1,5 @@
 class Device < ApplicationRecord
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :device_class
