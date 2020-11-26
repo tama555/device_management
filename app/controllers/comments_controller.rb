@@ -4,7 +4,10 @@ class CommentsController < ApplicationController
     redirect_to "/tasks/#{comment.task.id}"
   end
   
-  
+  def destroy
+    comment = Comment.find_by(id: params[:id],task_id: params[:task_id]).destroy
+    redirect_to "/tasks/#{comment.task.id}"
+  end
 
   private
   def comment_params
