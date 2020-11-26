@@ -20,6 +20,7 @@ class DevicesController < ApplicationController
 
   def show
     @device = Device.find(params[:id])
+    @tasks = Task.includes(:user).order("created_at DESC").where(device_id: params[:id])
   end
 
   def list

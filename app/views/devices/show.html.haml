@@ -2,54 +2,79 @@
 
 .wrapper
   = render "layouts/side_bar"
-  .main_space
-    .information
-      .form
-        .form__item
-          機器分類
-        = @device.device_class.name
-      
-      .form
-        .form__item
-          機器名
-        = @device.name
-      
-      .form
-        .form__item
-          型番
-        = @device.model_number
-      
-      .form
-        .form__item
-          シリアルNo
-        = @device.serial_number
-      
-      .form
-        .form__item
-          購入日
-        = @device.purchase_date
-      
-      .form
-        .form__item
-          購入金額
-        = @device.price
-      
-      .form
-        .form__item
-          最終点検日
-        = @device.last_inspection_date
-      
-      .form
-        .form__item
-          次回点検日
-        = @device.next_inspection_date
-      
-      .form
-        .form__item
-          点検間隔
-        = @device.inspection_interval.name
+  .main_field
+    .main_space
+      .information
+        .form
+          .form__item
+            機器分類
+          = @device.device_class.name
+        
+        .form
+          .form__item
+            機器名
+          = @device.name
+        
+        .form
+          .form__item
+            型番
+          = @device.model_number
+        
+        .form
+          .form__item
+            シリアルNo
+          = @device.serial_number
+        
+        .form
+          .form__item
+            購入日
+          = @device.purchase_date
+        
+        .form
+          .form__item
+            購入金額
+          = @device.price
+        
+        .form
+          .form__item
+            最終点検日
+          = @device.last_inspection_date
+        
+        .form
+          .form__item
+            次回点検日
+          = @device.next_inspection_date
+        
+        .form
+          .form__item
+            点検間隔
+          = @device.inspection_interval.name
 
-      .form
-        .form__item
-          貸出可否
-        = @device.lending_status ? '×': '○'
+        .form
+          .form__item
+            貸出可否
+          = @device.lending_status ? '×': '○'
+      .trouble_logo
+        <修理対応履歴>
+      - if @tasks.present?
+        .trouble_history
+          %table
+            %tr
+              %th 修理ID
+              %th 受取日
+              %th 提出者
+              %th 受取者
+              %th 部署
+              %th トラブル内容
+              %th 処理
+            - @tasks.each do |task|
+              %tr
+                %td= link_to task.id, task
+                %td= task.created_at.strftime("%Y-%m-%d")
+                %td= task.submitter
+                %td= task.user.name
+                %td= task.department.name
+                %td= task.trouble_content
+                %td= task.status ? '済': '未'
+      - else
+        なし
