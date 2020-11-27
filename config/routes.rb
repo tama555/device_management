@@ -9,6 +9,14 @@ Rails.application.routes.draw do
       get 'list'
     end
   end
+
+  resources :rentals do
+    collection do
+      get 'rental'
+      get 'return'
+      get 'histry'
+    end
+  end
   
   resources :tasks do
 

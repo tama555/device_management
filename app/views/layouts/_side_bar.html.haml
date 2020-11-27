@@ -38,3 +38,13 @@
         = link_to "完了未リスト", incomplete_tasks_path, class:"btn-flat-border-green"
       .complete
         = link_to "完了済リスト", complete_tasks_path, class:"btn-flat-border-green"
+    
+    .devices_rental
+      .label
+        ・機器レンタル  
+      .rental
+        = link_to "貸出", rental_rentals_path, class:"btn-flat-border-green"
+      .return
+        = link_to "返却", return_rentals_path, class:"btn-flat-border-green"
+      .histry
+        = link_to "貸出履歴", histry_rentals_path, class:"btn-flat-border-green"

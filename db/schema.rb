@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_141207) do
+ActiveRecord::Schema.define(version: 2020_11_26_154659) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 2020_11_25_141207) do
     t.date "next_inspection_date"
     t.integer "inspection_interval_id"
     t.boolean "lending_status", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "rentals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.date "loan_date"
+    t.date "return_date"
+    t.integer "device_id"
+    t.string "rental_staff"
+    t.string "return_staff"
+    t.integer "days"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
