@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   resources :rentals do
     collection do
-      get 'rental'
-      get 'return'
+      post 'rental'
+      post 'return'
       get 'histry'
     end
   end

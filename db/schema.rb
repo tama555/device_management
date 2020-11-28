@@ -36,11 +36,12 @@ ActiveRecord::Schema.define(version: 2020_11_26_154659) do
   end
 
   create_table "rentals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "loan_date"
-    t.date "return_date"
+    t.datetime "loan_datetime"
+    t.datetime "return_datetime"
     t.integer "device_id"
     t.string "rental_staff"
     t.string "return_staff"
+    t.integer "department_id"
     t.integer "days"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

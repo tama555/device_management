@@ -1,0 +1,25 @@
+= render "layouts/main_header"
+
+.wrapper
+  = render "layouts/side_bar"
+  .main_space
+    = form_with model: @rental do |f|
+      
+      .form
+        .form__item
+          = f.label :device_id, '機器ID'
+        = f.text_field :device_id
+
+      .form
+        .form__item
+          = f.label :department_id, '貸出部署'
+        = f.collection_select :department_id, Department.all, :id, :name,{include_blank: "選択してください"}
+
+      .form
+        .form__item
+          = f.label :rental_staff, 'スタッフ名'
+        = f.text_field :rental_staff
+     
+      = f.submit '貸出'
+
+
