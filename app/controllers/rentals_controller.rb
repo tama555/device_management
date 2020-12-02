@@ -8,16 +8,17 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @rental.update(loan_datetime: DateTime.current)
     device_id = @rental.device_id
-    if device_id == 1
+    @devices = Device.find(device_id)
+    if @devices.lending_status == true
       flash.now[:alert]= '入力された機器IDは貸出されているので登録できません'
       render :new
-    end
-    @devices = Device.where(id: device_id)
-    @device = @devices.update(lending_status: 1)
-    if @rental.save
-      redirect_to root_path
     else
-      render :new
+      @device = @devices.update(lending_status: 1)
+      if @rental.save
+        redirect_to root_path
+      else
+        render :new
+      end
     end
   end
 

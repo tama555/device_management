@@ -3,7 +3,7 @@
 .wrapper
   = render "layouts/side_bar"
   .main_space
-    = form_with model: @rental do |f|
+    = form_with model: @rental,local: true do |f|
       
       .form
         .form__item
