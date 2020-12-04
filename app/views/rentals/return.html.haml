@@ -1,0 +1,19 @@
+= render "layouts/main_header"
+
+.wrapper
+  = render "layouts/side_bar"
+  .main_space
+    = form_with model: @rental,local: true do |f|
+      
+      .form
+        .form__item
+          = f.label :device_id, '機器ID'
+        = f.text_field :device_id
+
+      .form
+        .form__item
+          = f.label :return_staff, 'スタッフ名'
+        = f.text_field :return_staff
+     
+      = f.submit '貸出'
+

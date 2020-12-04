@@ -22,6 +22,12 @@ class RentalsController < ApplicationController
     end
   end
 
+  def return
+  end
+
+  def show
+  end
+
 
 private
 def rental_params
