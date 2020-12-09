@@ -25,8 +25,15 @@ class RentalsController < ApplicationController
   def return
   end
 
-  def show
+  def done
+    @rental = Rental.find()
   end
+
+  def history
+    @rental = Rental.all
+  end
+
+
 
 
 private

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     collection do
       post 'rental'
       get 'return'
-      get 'histry'
+      get 'history'
     end
   end
   
@@ -27,4 +27,5 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
   post '/tasks/:id/done' => 'tasks#done',   as: 'done'
+  post '/rentals/:id/done' => 'rentals#done',   as: 'return_done'
 end

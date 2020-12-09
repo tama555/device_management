@@ -1,0 +1,36 @@
+= render "layouts/main_header"
+
+.wrapper
+  = render "layouts/side_bar"
+  .main_space
+    .information
+      %table
+        %tr
+          %th ID
+          %th 貸出日
+          %th 返却日
+          %th 機器ID
+          %th 貸出者
+          %th 返却者
+          %th 部署
+          %th 貸出日数
+        - @rental.each do |rental|
+          %tr
+            %td= rental.id
+            %td= rental.loan_datetime.strftime("%Y-%m-%d")
+            %td= rental.return_datetime
+            %td= rental.device_id
+            %td= rental.rental_staff
+            %td= rental.return_staff
+            %td= rental.department.name
+            %td= rental.days
+
+    t.datetime "loan_datetime"
+    t.datetime "return_datetime"
+    t.integer "device_id"
+    t.string "rental_staff"
+    t.string "return_staff"
+    t.integer "department_id"
+    t.integer "days"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
