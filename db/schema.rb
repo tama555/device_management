@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_26_154659) do
+ActiveRecord::Schema.define(version: 2020_12_10_015131) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -35,14 +35,33 @@ ActiveRecord::Schema.define(version: 2020_11_26_154659) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "rentals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "rent_histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "loan_datetime"
     t.datetime "return_datetime"
     t.integer "device_id"
     t.string "rental_staff"
     t.string "return_staff"
+    t.integer "rental_department_id"
+    t.integer "return_department_id"
+    t.integer "day"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "rentals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "loan_datetime"
+    t.integer "device_id"
+    t.string "rental_staff"
     t.integer "department_id"
-    t.integer "days"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "returns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "return_datetime"
+    t.integer "device_id"
+    t.string "return_staff"
+    t.integer "department_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

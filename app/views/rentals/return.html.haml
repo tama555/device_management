@@ -3,7 +3,6 @@
 .wrapper
   = render "layouts/side_bar"
   .main_space
-    = text_field_tag "id"
-    .done_botton
-      = button_to '変更', return_done_path(@rental), method: :post, data:{confirm: '本当によろしいですか?'}
+    -# = text_field_tag "id"
+    -# = button_to '変更', return_done_path(@id), method: :post
 

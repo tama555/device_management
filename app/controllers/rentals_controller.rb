@@ -23,11 +23,10 @@ class RentalsController < ApplicationController
   end
 
   def return
+
   end
 
-  def done
-    @rental = Rental.find()
-  end
+  
 
   def history
     @rental = Rental.all
