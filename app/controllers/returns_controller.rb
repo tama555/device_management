@@ -15,6 +15,12 @@ class ReturnsController < ApplicationController
       else
         @return.update(return_datetime: DateTime.current)
         @device = @devices.update(lending_status: 0)
+  
+        rental_tasks = Rental.find_by(device_id: device_id)
+        binding.pry
+
+        # history = Rent_history.new(rent_history_params)
+        # history.update(:loan_datetime: )
 
         if @return.save
           redirect_to root_path
@@ -58,4 +64,10 @@ class ReturnsController < ApplicationController
   def return_params
     params.require(:return).permit(:device_id, :return_staff, :department_id)
   end
+
+  def rent_history_params
+    params.require(:rent_history).permit(:loan_datetime, :return_datetime, :device_id, :rental_staff, :return_staff, :rental_department_id, :return_department_id, :day)
+  end
 end
+
+
