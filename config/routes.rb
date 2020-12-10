@@ -13,9 +13,11 @@ Rails.application.routes.draw do
   resources :rentals do
     collection do
       post 'rental'
-      post 'return'
       get 'history'
     end
+  end
+
+  resources :returns do
   end
   
   resources :tasks do
