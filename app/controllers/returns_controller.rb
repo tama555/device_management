@@ -15,12 +15,17 @@ class ReturnsController < ApplicationController
       else
         @return.update(return_datetime: DateTime.current)
         @device = @devices.update(lending_status: 0)
-  
-        rental_tasks = Rental.find_by(device_id: device_id)
-        binding.pry
 
-        # history = Rent_history.new(rent_history_params)
-        # history.update(:loan_datetime: )
+        rental_tasks = Rental.order(id: :DESC)
+        return_tasks = Return.order(id: :DESC)
+        rental_task = rental_tasks.find_by(device_id: device_id)
+        return_task = return_tasks.find_by(device_id: device_id)
+
+        history = RentHistory.new(rent_history_params)
+        history.update(loan_datetime: rental_task.loan_datetime, return_datetime: return_task.return_datetime, device_id: rental_task.device_id, rental_staff: rental_task.rental_staff, return_staff: return_task.return_staff, rental_department_id: rental_task.department_id, return_department_id: return_task.department_id)
+        history.update(day: return_task.return_datetime - rental_task.loan_datetime)
+        
+        history.save
 
         if @return.save
           redirect_to root_path
@@ -66,8 +71,9 @@ class ReturnsController < ApplicationController
   end
 
   def rent_history_params
-    params.require(:rent_history).permit(:loan_datetime, :return_datetime, :device_id, :rental_staff, :return_staff, :rental_department_id, :return_department_id, :day)
+    params.permit(:loan_datetime, :return_datetime, :device_id, :rental_staff, :return_staff, :rental_department_id, :return_department_id, :day)
   end
 end
+
 
 

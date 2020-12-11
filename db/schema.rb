@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_12_10_015131) do
     t.string "return_staff"
     t.integer "rental_department_id"
     t.integer "return_department_id"
-    t.integer "day"
+    t.datetime "day"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
