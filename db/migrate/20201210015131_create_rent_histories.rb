@@ -8,7 +8,7 @@ class CreateRentHistories < ActiveRecord::Migration[6.0]
       t.string :return_staff
       t.string :rental_department
       t.string :return_department
-      t.datetime :day
+      t.integer :day
       t.timestamps
     end
   end

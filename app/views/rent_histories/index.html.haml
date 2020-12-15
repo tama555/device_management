@@ -10,6 +10,7 @@
           %th 貸出日
           %th 返却日
           %th 機器ID
+          %th 機器名
           %th 貸出部署
           %th 貸出者
           %th 返却部署
@@ -21,6 +22,7 @@
             %td= history.id
             %td= history.loan_datetime.strftime("%Y-%m-%d")
             %td= history.return_datetime.strftime("%Y-%m-%d")
+            %td= history.device_id
             %td= history.device.name
             %td= history.rental_department
             %td= history.rental_staff

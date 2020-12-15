@@ -23,8 +23,9 @@ class ReturnsController < ApplicationController
 
         history = RentHistory.new(rent_history_params)
         history.update(loan_datetime: rental_task.loan_datetime, return_datetime: return_task.return_datetime, device_id: rental_task.device_id, rental_staff: rental_task.rental_staff, return_staff: return_task.return_staff, rental_department: rental_task.department.name, return_department: return_task.department.name)
-        history.update(day: return_task.return_datetime - rental_task.loan_datetime)
-        
+        day_count = return_task.return_datetime - rental_task.loan_datetime
+        day = day_count / 86400
+        history.update(day: day)
         history.save
 
         if @return.save
