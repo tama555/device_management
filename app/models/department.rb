@@ -8,5 +8,6 @@ class Department < ActiveHash::Base
   include ActiveHash::Associations
   has_many :tasks
   has_many :rentals
+  has_many :returns
 
 end

@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   resources :returns do
   end
   
+  resources :rent_histories do
+  end
+  
   resources :tasks do
 
     collection do
@@ -30,4 +33,5 @@ Rails.application.routes.draw do
   end
   post '/tasks/:id/done' => 'tasks#done',   as: 'done'
   post '/rentals/return/done' => 'rentals#done',   as: 'return_done'
+
 end
